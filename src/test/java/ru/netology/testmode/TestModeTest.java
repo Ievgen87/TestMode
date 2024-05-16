@@ -34,17 +34,17 @@ public class TestModeTest {
                 .shouldBe(Condition.visible);
     }
 
-//    @Test
-//    @DisplayName("not register user error test")
-//    void notRegisterUserErrorTest() {
-//        var notRegisteredUser = getRegisterUser("active");
-//        $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
-//        $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
-//        $("button.button").click();
-//        $("[data-test-id='error-notification'] .notification__content")
-//                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
-//                .shouldBe((Condition.visible));
-//    }
+    @Test
+    @DisplayName("not register user error test")
+    void notRegisterUserErrorTest() {
+        var notRegisteredUser = getUser("active");
+        $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
+        $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
+        $("button.button").click();
+        $("[data-test-id='error-notification'] .notification__content")
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
+                .shouldBe((Condition.visible));
+    }
 
     @Test
     @DisplayName("user blocked error test")
